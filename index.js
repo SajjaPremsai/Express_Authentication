@@ -50,10 +50,10 @@ app.post("/login", async (req, res) => {
                 const access_token = jwt.sign({ username: username },process.env.ACCESS_TOKEN, {expiresIn : '1h'})
                 const refresh_token = jwt.sign({ username: username }, process.env.REFRESH_TOKEN, { expiresIn: '2h' })
                 res.cookie("AccessToken" , access_token ,{
-                    httpOnly : true , secure:true , sameSite : 'strict' 
+                    httpOnly : true , secure:true  
                 })
                 res.cookie("RefreshToken", refresh_token , {
-                    httpOnly : true , secure : true , sameSite : 'strict' 
+                    httpOnly : true , secure : true 
                 })
                 res.status(200).send({
                     verification: true,
