@@ -13,10 +13,12 @@ const app = express()
 app.use(bodyparser.json())
 app.use(cors({
     origin: ['https://express-authentication-client.onrender.com', 'http://localhost:3000'],
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-app.options('*', cors());
+// app.options('*', cors());
 
 app.use(cookieParser())
 
