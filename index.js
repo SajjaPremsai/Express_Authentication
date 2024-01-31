@@ -12,7 +12,7 @@ const app = express()
 
 app.use(bodyparser.json())
 app.use(cors({
-    origin: ['https://express-authentication-client.onrender.com','*'],
+    origin: ['https://express-authentication-client.onrender.com','http://localhost:3000'],
     credentials : true
 }))
 app.use(cookieParser())
