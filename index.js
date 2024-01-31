@@ -35,7 +35,7 @@ const Connection = mongoose.connect("mongodb+srv://codedemon434:04EErK3dXfvR9DaX
 
 app.post("/login", async (req, res) => {
     try {
-        console.log("Check one")
+        // console.log("Check one")
         const { username, password } = req.body;
         const user = await UserModel.findOne({ username: username });
 
@@ -46,7 +46,7 @@ app.post("/login", async (req, res) => {
 
         bcrypt.compare(password, user.password, (err, result) => {
             if (result) {
-                console.log("Check at the Cookie")
+                // console.log("Check at the Cookie")
                 const access_token = jwt.sign({ username: username },process.env.ACCESS_TOKEN, {expiresIn : '1h'})
                 const refresh_token = jwt.sign({ username: username }, process.env.REFRESH_TOKEN, { expiresIn: '2h' })
                 res.cookie("AccessToken" , access_token ,{
